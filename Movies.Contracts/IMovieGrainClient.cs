@@ -14,5 +14,6 @@ namespace Movies.Contracts
 		Task<List<Movie>> SearchMovies(string phrase);
 
 		Task<Movie> UpdateMovie(int id, Movie movie);
+		Task<Movie> CreateMovie(Movie movie);
 	}
 }

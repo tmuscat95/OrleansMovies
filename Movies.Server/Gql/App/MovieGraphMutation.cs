@@ -20,6 +20,9 @@ namespace Movies.Server.Gql.App
 				arguments: new QueryArguments(nameArgument, movieArgument),
 				resolve: context => { return movieClient.UpdateMovie(context.GetArgument<int>("id"), context.GetArgument<Movie>("movie")); });
 
+			Field<MovieGraphType>("createMovie",
+				arguments: new QueryArguments(movieArgument),
+				resolve: context => movieClient.CreateMovie(context.GetArgument<Movie>("movie")));
 		}
 	}
 }

@@ -64,10 +64,22 @@ namespace Movies.GrainClients
 		public async Task<Movie> UpdateMovie(int id,Movie movie)
 		{
 			var grain = _grainFactory.GetGrain<IMovieGrain>("movies");
-			var movieToUpdate = await grain.Get(id);
+			var movies = await grain.GetState();
+			var movieToUpdate = movies.Where(m => m.Id == id).Select(m => m).FirstOrDefault();
 			movieToUpdate.Update(movie);
+			await grain.SetState(movies);
 			return movieToUpdate;
-			
+
+		}
+
+		public async Task<Movie> CreateMovie(Movie movie)
+		{
+			var grain = _grainFactory.GetGrain<IMovieGrain>("movies");
+			var movies = await grain.GetState();
+			movie.Id = movies.Select(m => m.Id).Max() + 1;
+			movies.Add(movie);
+			await grain.SetState(movies);
+			return movie;
 		}
 	}
 }
