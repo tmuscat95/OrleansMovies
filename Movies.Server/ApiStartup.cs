@@ -62,7 +62,7 @@ namespace Movies.Server
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(
+		public async void Configure(
 			IApplicationBuilder app,
 			IWebHostEnvironment env
 		)
@@ -96,7 +96,7 @@ namespace Movies.Server
 			using (var serviceScope = app.ApplicationServices.CreateScope())
 			{
 				var grainClient = serviceScope.ServiceProvider.GetService<IMovieGrainClient>();
-				Utilities.LoadMoviesIntoGrain(grainClient);
+				await Utilities.LoadMoviesIntoGrain(grainClient);
 			}
 		}
 	}
