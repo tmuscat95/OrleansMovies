@@ -1,6 +1,7 @@
 ﻿using Movies.Contracts;
 using Orleans;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Movies.GrainClients
@@ -25,19 +26,48 @@ namespace Movies.GrainClients
 		public Task<List<Movie>> GetAll()
 		{
 			var grain = _grainFactory.GetGrain<IMovieGrain>("movies");
-			return grain.GetAll();
+			return grain.GetState();
 		}
-		/* 
-		public Task Set(string key, string name)
+
+		public async Task<List<Movie>> GetMoviesByGenre(string genre)
 		{
-			var grain = _grainFactory.GetGrain<IMovieGrain>(key);
-			return grain.Set(name);
+			var grain = _grainFactory.GetGrain<IMovieGrain>("movies");
+			var movies = await grain.GetState();
+			return movies.Where(m => m.Genres.Select(g => g.ToLower()).Contains(genre.Trim().ToLower()))
+				.Select(m => m).ToList();
 		}
-		*/
+
+		public async Task<List<Movie>> GetTop5Movies()
+		{
+			var grain = _grainFactory.GetGrain<IMovieGrain>("movies");
+			var movies = await grain.GetState();
+			return movies.OrderByDescending(m => float.Parse(m.Rate)).Take(5).ToList();
+		}
+
+		public async Task<List<Movie>> SearchMovies(string phrase)
+		{
+			var grain = _grainFactory.GetGrain<IMovieGrain>("movies");
+			var movies = await grain.GetState();
+			return movies
+				.Where(m => m.Name.ToLower()
+				.Contains(phrase.ToLower()) || m.Description.ToLower().Contains(phrase.ToLower()))
+				.Select(m=>m)
+				.ToList();
+		}
+
 		public Task Set(List<Movie> movies)
 		{
 			var grain = _grainFactory.GetGrain<IMovieGrain>("movies");
-			return grain.Set(movies);
+			return grain.SetState(movies.ToList());
+		}
+
+		public async Task<Movie> UpdateMovie(int id,Movie movie)
+		{
+			var grain = _grainFactory.GetGrain<IMovieGrain>("movies");
+			var movieToUpdate = await grain.Get(id);
+			movieToUpdate.Update(movie);
+			return movieToUpdate;
+			
 		}
 	}
 }

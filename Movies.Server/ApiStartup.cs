@@ -11,6 +11,7 @@ using Movies.Core;
 using Movies.GrainClients;
 using Movies.Server.Gql;
 using Movies.Server.Gql.App;
+using Movies.Server.Gql.Types;
 using Movies.Server.Infrastructure;
 
 
@@ -52,6 +53,8 @@ namespace Movies.Server
 			});
 
 			//services.AddScoped<IMovieGrainClient>();
+			services.AddTransient<MovieInputType>();
+			services.AddTransient<MovieGraphType>();
 			services.AddAppClients();
 			services.AddAppGraphQL();
 			services.AddControllers()

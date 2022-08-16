@@ -17,5 +17,17 @@ namespace Movies.Contracts
 		{
 			
 		}
+
+		public Movie Update(Movie newData)
+		{
+			this.Key = newData.Key;
+			this.Name = newData.Name;
+			this.Description = newData.Description;
+			this.Genres = newData.Genres;
+			this.Rate = newData.Rate;
+			this.Length = newData.Length;
+			this.Img = newData.Img;
+			return this;
+		}
 	}
 }

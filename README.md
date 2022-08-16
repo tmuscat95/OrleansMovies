@@ -9,13 +9,13 @@ The application has the following functionality:
 ## Features
 
 - **Home**
-  - List top 5 highest rated movies
+  - List top 5 highest rated movies //
 - **Movies List**
-  - List Movies
-  - Search
-  - Filter by Genre
+  - List Movies //
+  - Search //
+  - Filter by Genre //
 - **Movie detail**
-  - Display selected movie detail information
+  - Display selected movie detail information //
 - **Create Movie**
   - Create a new movie that can be retrieved in the movies list
 - **Update Movie**
@@ -60,7 +60,7 @@ The application has the following functionality:
 
 ### Extra Credit
 
-- Pre-loading data in memory on App Start-up so it can be retrieved faster (using the required technologies)
+- // Pre-loading data in memory on App Start-up so it can be retrieved faster (using the required technologies)
 - Use of good design patterns that avoid bottle necks
 - Add Unit tests
 - Rudimentary UI

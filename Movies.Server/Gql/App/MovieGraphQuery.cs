@@ -13,12 +13,24 @@ namespace Movies.Server.Gql.App
 			var movieClient = provider.GetRequiredService<IMovieGrainClient>();
 			Name = "MovieQueries";
 
-			Field<ListGraphType<MovieGraphType>>("movies", resolve: context => movieClient.GetAll());
+			Field<ListGraphType<MovieGraphType>>("listMovies", resolve: context => movieClient.GetAll());
 
-			Field<MovieGraphType>("movie", arguments: new QueryArguments(new QueryArgument<StringGraphType>
+			Field<MovieGraphType>("movieById", arguments: new QueryArguments(new QueryArgument<StringGraphType>
 			{
 				Name = "id"
 			}), resolve: context => movieClient.Get(int.Parse(context.Arguments["id"].ToString().Trim())));
+
+			Field<ListGraphType<MovieGraphType>>("moviesByGenre", arguments: new QueryArguments(new QueryArgument<StringGraphType>
+			{
+				Name = "genre"
+			}), resolve: context => movieClient.GetMoviesByGenre(context.Arguments["genre"].ToString()));
+
+			Field<ListGraphType<MovieGraphType>>("top5", resolve: context => movieClient.GetTop5Movies());
+
+			Field<ListGraphType<MovieGraphType>>(name:"search", description: "Search By Title And Description", arguments: new QueryArguments(new QueryArgument<StringGraphType>
+			{
+				Name = "phrase"
+			}), resolve: context => movieClient.SearchMovies(context.Arguments["phrase"].ToString()));
 			/*
 			Field<MovieGraphType>("sample",
 				arguments: new QueryArguments(new QueryArgument<StringGraphType>

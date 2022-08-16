@@ -9,11 +9,11 @@ namespace Movies.Grains
 	[StorageProvider(ProviderName = "Default")]
 	public class MovieGrain : Grain<List<Movie>>, IMovieGrain
 	{
-		public Task<List<Movie>> GetAll()
+		public Task<List<Movie>> GetState()
 			=> Task.FromResult(State);
 
 		public Task<Movie> Get(int id) => Task.FromResult(State.Find(x => x.Id == id));
-		public Task Set(List<Movie> movies)
+		public Task SetState(List<Movie> movies)
 		{
 			//State = new SampleDataModel { Id = this.GetPrimaryKeyString(), Name = name };
 			State = movies;
