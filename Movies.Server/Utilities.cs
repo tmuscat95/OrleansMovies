@@ -14,9 +14,12 @@ namespace Movies.Server
 			{
 				string s = file.ReadToEnd();
 
-				List<Movie> data = JsonConvert.DeserializeObject<List<Movie>>(s);
+				List<Movie> movies = JsonConvert.DeserializeObject<List<Movie>>(s);
 
-				await grainClient.Set(data);
+				foreach (Movie movie in movies)
+				{
+					await grainClient.AddMovie(movie);
+				}
 
 			}
 		}

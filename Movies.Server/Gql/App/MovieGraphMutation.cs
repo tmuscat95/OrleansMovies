@@ -22,7 +22,7 @@ namespace Movies.Server.Gql.App
 
 			Field<MovieGraphType>("createMovie",
 				arguments: new QueryArguments(movieArgument),
-				resolve: context => movieClient.CreateMovie(context.GetArgument<Movie>("movie")));
+				resolve: context => movieClient.AddMovie(context.GetArgument<Movie>("movie")));
 		}
 	}
 }

@@ -17,9 +17,9 @@ The application has the following functionality:
 - **Movie detail**
   - Display selected movie detail information //
 - **Create Movie**
-  - Create a new movie that can be retrieved in the movies list
+  - Create a new movie that can be retrieved in the movies list //
 - **Update Movie**
-  - Update movies data.  
+  - Update movies data.  //
 
 ### Technologies required
 

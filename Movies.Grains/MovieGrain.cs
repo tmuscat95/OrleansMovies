@@ -7,16 +7,13 @@ using System.Threading.Tasks;
 namespace Movies.Grains
 {
 	[StorageProvider(ProviderName = "Default")]
-	public class MovieGrain : Grain<List<Movie>>, IMovieGrain
+	public class MovieGrain : Grain<Movie>, IMovieGrain
 	{
-		public Task<List<Movie>> GetState()
+		public Task<Movie> GetState()
 			=> Task.FromResult(State);
-
-		public Task<Movie> Get(int id) => Task.FromResult(State.Find(x => x.Id == id));
-		public Task SetState(List<Movie> movies)
+		public Task SetState(Movie movie)
 		{
-			//State = new SampleDataModel { Id = this.GetPrimaryKeyString(), Name = name };
-			State = movies;
+			State = movie;
 			return Task.CompletedTask;
 		}
 	}
