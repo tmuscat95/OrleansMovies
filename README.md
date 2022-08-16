@@ -64,7 +64,7 @@ The application has the following functionality:
 - Use of good design patterns that avoid bottle necks
 - Add Unit tests
 - Rudimentary UI
-- Dockerized application
+- //Dockerized application
 
 If you get the demo in good shape and have extra time, add your own flair and features.
 
