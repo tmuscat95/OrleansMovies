@@ -5,8 +5,9 @@ namespace Movies.Contracts
 {
 	public interface IMovieGrainClient
 	{
+		public List<int> GetIds();
 
-		Task<Movie> Get(int id);
+        Task<Movie> Get(int id);
 		Task<Movie> AddMovie(Movie movie);
 		Task<List<Movie>> GetAll();
 

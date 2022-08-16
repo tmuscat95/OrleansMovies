@@ -9,9 +9,10 @@ namespace Movies.GrainClients
 	public class MovieGrainClient : IMovieGrainClient
 	{
 		private readonly IGrainFactory _grainFactory;
-		private static List<int> _ids = new List<int>();
+		private List<int> _ids = new List<int>();
 		/*In production, grain identifiers would be persisted in an external storage. 
 		 In this example app, data is reloaded every time the app is started, so this is enough.*/
+		public List<int> GetIds() { return _ids; } 
 		public MovieGrainClient(
 			IGrainFactory grainFactory
 		)
