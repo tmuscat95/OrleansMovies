@@ -13,18 +13,7 @@ namespace Movies.Contracts
 		public string Rate { get; set; }
 		public string Length { get; set; }
 		public string Img { get; set; }
-
-		public Movie(int id, string key, string name, string description, List<string> genres, string rate, string length, string img)
-		{
-			Id = id;
-			Key = key;
-			Name = name;
-			Description = description;
-			Genres = genres;
-			Rate = rate;
-			Length = length;
-			Img = img;
-		}
+		
 
 		public override bool Equals(Object obj)
 		{
