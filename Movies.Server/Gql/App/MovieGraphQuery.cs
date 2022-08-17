@@ -15,7 +15,7 @@ namespace Movies.Server.Gql.App
 
 			Field<ListGraphType<MovieGraphType>>("listMovies", resolve: context => movieClient.GetAll());
 
-			Field<MovieGraphType>("movieById", arguments: new QueryArguments(new QueryArgument<StringGraphType>
+			Field<MovieGraphType>("getMovieDetail", arguments: new QueryArguments(new QueryArgument<StringGraphType>
 			{
 				Name = "id"
 			}), resolve: context => movieClient.Get(int.Parse(context.Arguments["id"].ToString().Trim())));
@@ -31,6 +31,9 @@ namespace Movies.Server.Gql.App
 			{
 				Name = "phrase"
 			}), resolve: context => movieClient.SearchMovies(context.Arguments["phrase"].ToString()));
+			
+
+			
 			/*
 			Field<MovieGraphType>("sample",
 				arguments: new QueryArguments(new QueryArgument<StringGraphType>
