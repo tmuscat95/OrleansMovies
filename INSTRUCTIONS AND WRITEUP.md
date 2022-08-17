@@ -8,4 +8,9 @@
 ## Summary Of Work:
 Requirements + "Extra Credit" implemented as per specification (to the best of my understanding). 
 UI, implemented in React, is rudimentary and does not feature GraphQL subscriptions, or more complex form controls such as Updating or creating a new movie (seeing as this is a backend position I'm applying for, I'm guessing you're not too worried about my React skills).
-App was configured to use http rather than https owing to issues with self-signed certificate verification on macOS. I would obviously not do it this way in production. Orleans configured to use Memory storage provider.
+
+App was configured to use http rather than https owing to issues with self-signed certificate verification on macOS; I would obviously not do it this way in production. 
+
+Orleans configured to use Memory storage provider.
+
+Testing implemented using NUnit and Orleans.TestingHost.
