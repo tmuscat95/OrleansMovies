@@ -1,8 +1,6 @@
 using Movies.Contracts;
 using Movies.GrainClients;
-using Orleans;
 using Orleans.TestingHost;
-using Movies.Server;
 using Orleans.Hosting;
 
 namespace Tests

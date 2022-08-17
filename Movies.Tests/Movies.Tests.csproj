@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -18,11 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Movies.Contracts\Movies.Contracts.csproj" />
-    <ProjectReference Include="..\..\Movies.Core\Movies.Core.csproj" />
-    <ProjectReference Include="..\..\Movies.GrainClients\Movies.GrainClients.csproj" />
-    <ProjectReference Include="..\..\Movies.Grains\Movies.Grains.csproj" />
-    <ProjectReference Include="..\..\Movies.Server\Movies.Server.csproj" />
+    <ProjectReference Include="..\Movies.Contracts\Movies.Contracts.csproj" />
+    <ProjectReference Include="..\Movies.Core\Movies.Core.csproj" />
+    <ProjectReference Include="..\Movies.GrainClients\Movies.GrainClients.csproj" />
+    <ProjectReference Include="..\Movies.Grains\Movies.Grains.csproj" />
+    <ProjectReference Include="..\Movies.Server\Movies.Server.csproj" />
   </ItemGroup>
 
 </Project>

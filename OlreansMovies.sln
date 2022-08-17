@@ -23,9 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Movies.GrainClients", "Movi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Movies.Core", "Movies.Core\Movies.Core.csproj", "{579B32FE-1B1E-459E-868C-5E24F3F10CF6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Movies.Tests\Tests.csproj", "{3ACE4FDA-B838-46CE-89CA-DA8161D517D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Movies.Tests", "Movies.Tests\Movies.Tests.csproj", "{3ACE4FDA-B838-46CE-89CA-DA8161D517D7}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Movies.ReactUI", "src\Movies.ReactUI\Movies.ReactUI.esproj", "{17A5C5DD-58C1-440C-94A9-54A932AD8978}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Movies.ReactUI", "Movies.ReactUI\Movies.ReactUI.esproj", "{17A5C5DD-58C1-440C-94A9-54A932AD8978}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

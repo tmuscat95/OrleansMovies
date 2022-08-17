@@ -28,7 +28,7 @@ namespace Movies.Server.Controllers
 		[HttpGet]
 		public async Task<List<Movie>> GetAll()
 		{
-			var result = await _client.GetAll().ConfigureAwait(false);
+			var result = await _client.GetAll();
 			return result;
 		}
 
